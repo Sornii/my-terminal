@@ -38,3 +38,7 @@ export function removeAt(text, position) {
 
   return text.slice(0, sanitizedPosition) + text.slice(position, text.length);
 }
+
+export function removeOneKeepSigned(number) {
+  return number > 0 ? number - 1 : 0;
+}

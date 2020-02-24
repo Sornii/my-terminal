@@ -1,3 +1,32 @@
+html,
+body,
+#root,
+.App {
+  height: 100%;
+}
+
 p {
   margin: 0;
+}
+
+pre {
+  font-size: 16px;
+  margin: 0;
+}
+
+.Terminal {
+  background-color: #0d1012;
+  font-family: 'Roboto Mono', monospace;
+  color: rgb(142, 255, 242);
+  display: flex;
+  flex-direction: column;
+  padding: 4px;
+  flex-grow: 1;
+}
+
+.App {
+  background-color: #35363a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

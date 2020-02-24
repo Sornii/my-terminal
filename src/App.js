@@ -2,11 +2,15 @@ import React from 'react';
 import './App.css';
 import { ConnectedTerminal } from './Terminal';
 import 'typeface-roboto-mono';
+import './home/index';
+import { Window } from './Window';
 
 function App() {
   return (
     <div className="App">
-      <ConnectedTerminal blinkable={false} />
+      <Window>
+        <ConnectedTerminal blinkableCursor={true} />
+      </Window>
     </div>
   );
 }

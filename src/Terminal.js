@@ -20,15 +20,15 @@ import {
   isArrowDown,
 } from './utils';
 
-const r = 201.64 / 21;
+const r = 432.08 / 45;
 
 function Cursor({ color, index, shift = 0 }) {
   return (
     <div
       style={{
         backgroundColor: color,
-        height: '21px',
-        width: '10px',
+        height: '18px',
+        width: `${r}px`,
         position: 'absolute',
         marginLeft: `${r * (index + shift)}px`,
       }}
@@ -37,7 +37,15 @@ function Cursor({ color, index, shift = 0 }) {
 }
 
 function Input({ text }) {
-  return <div>{text}</div>;
+  return (
+    <pre
+      style={{
+        height: '18px',
+      }}
+    >
+      {text}
+    </pre>
+  );
 }
 
 const ConnectedInput = connect(({ terminal }) => ({
@@ -54,6 +62,7 @@ function KeyboardInput() {
     <div
       style={{
         display: 'flex',
+        height: '18px',
       }}
     >
       <ConnectedCursor />
@@ -68,9 +77,13 @@ function Prompt() {
 
 function Output({ texts }) {
   return (
-    <div>
-      {texts.map(text => (
-        <p>{text}</p>
+    <div
+      style={{
+        flexGrow: 1,
+      }}
+    >
+      {texts.map((text, index) => (
+        <pre key={index}>{text}</pre>
       ))}
     </div>
   );
@@ -116,16 +129,7 @@ function Terminal({
   });
 
   return (
-    <div
-      style={{
-        backgroundColor: 'black',
-        width: '500px',
-        height: '400px',
-        fontFamily: 'Roboto Mono',
-        margin: '24px',
-        color: '#75FA4C',
-      }}
-    >
+    <div className="Terminal">
       <ConnectedOutput />
       <Prompt />
     </div>
@@ -135,7 +139,7 @@ function Terminal({
 const ConnectedTerminal = connect(
   null,
 
-  (dispatch, ownProps) => ({
+  dispatch => ({
     toggleCursorColor: () => dispatch(toggleCursorColor()),
     addCharacter: character => dispatch(addCharacter(character)),
     deleteCharacter: character => dispatch(deleteCharacter(character)),

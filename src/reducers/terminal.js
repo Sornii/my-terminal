@@ -12,16 +12,17 @@ import {
   ADD_TO_OUTPUT,
   PROGRAM_NOT_FOUND,
 } from '../constants/action-types';
-import { addAt, removeAt } from '../utils';
+import { addAt, removeAt, removeOneKeepSigned } from '../utils';
 
 const terminal = (
   state = {
-    input: '',
+    input: 'hello --help',
     position: 0,
     cursor: 'rgba(255, 255, 255, 0.2)',
     submitted: [],
     resurrectPosition: -1,
     output: [],
+    dir: '/',
   },
   action,
 ) => {
@@ -37,7 +38,7 @@ const terminal = (
       return {
         ...state,
         input: removeAt(state.input, state.position),
-        position: state.position > 0 ? state.position - 1 : 0,
+        position: removeOneKeepSigned(state.position),
       };
 
     case TOGGLE_CURSOR_COLOR:
@@ -135,7 +136,7 @@ const terminal = (
     case PROGRAM_NOT_FOUND: {
       return {
         ...state,
-        output: [...state.output, `The program ${state.input} was not found`],
+        output: [...state.output, `${action.payload} not found`],
       };
     }
 

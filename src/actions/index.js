@@ -9,6 +9,8 @@ import {
   PROGRAM_NOT_FOUND,
   RESURRECT_LAST_COMMAND_BACKWARDS,
   RESURRECT_LAST_COMMAND_FORWARDS,
+  EXECUTE_PROGRAM,
+  ADD_TO_OUTPUT,
 } from '../constants/action-types';
 
 export function toggleCursorColor() {
@@ -39,8 +41,8 @@ export function moveCursorLeft() {
   return { type: MOVE_CURSOR_LEFT };
 }
 
-export function programNotFound() {
-  return { type: PROGRAM_NOT_FOUND };
+export function programNotFound(programName) {
+  return { type: PROGRAM_NOT_FOUND, payload: programName };
 }
 
 export function resurrectLastCommandBackwards() {
@@ -48,4 +50,12 @@ export function resurrectLastCommandBackwards() {
 }
 export function resurrectLastCommandForward() {
   return { type: RESURRECT_LAST_COMMAND_FORWARDS };
+}
+
+export function executeProgram(executable, args) {
+  return { type: EXECUTE_PROGRAM, payload: { executable, args } };
+}
+
+export function addToOutput(output) {
+  return { type: ADD_TO_OUTPUT, payload: output };
 }
