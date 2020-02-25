@@ -3,21 +3,21 @@ import { connect } from 'react-redux';
 import {
   addCharacter,
   deleteCharacter,
-  toggleCursorColor,
   moveCursorLeft,
   moveCursorRight,
   resurrectLastCommandBackwards,
   resurrectLastCommandForward,
   submitPrompt,
+  toggleCursorColor,
 } from './actions';
 import {
-  isArrowUp,
+  isArrowDown,
   isArrowLeft,
   isArrowRight,
+  isArrowUp,
   isBackspace,
   isEnter,
   isValidKey,
-  isArrowDown,
 } from './utils';
 
 const characterWidth = 432.08 / 45;
