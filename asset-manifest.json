@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/my-terminal/static/css/main.147c4ed4.chunk.css",
+    "main.js": "/my-terminal/static/js/main.8a914679.chunk.js",
+    "main.js.map": "/my-terminal/static/js/main.8a914679.chunk.js.map",
+    "runtime-main.js": "/my-terminal/static/js/runtime-main.465c6c68.js",
+    "runtime-main.js.map": "/my-terminal/static/js/runtime-main.465c6c68.js.map",
+    "static/css/2.fcf077d2.chunk.css": "/my-terminal/static/css/2.fcf077d2.chunk.css",
+    "static/js/2.c12f3ccd.chunk.js": "/my-terminal/static/js/2.c12f3ccd.chunk.js",
+    "static/js/2.c12f3ccd.chunk.js.map": "/my-terminal/static/js/2.c12f3ccd.chunk.js.map",
+    "index.html": "/my-terminal/index.html",
+    "precache-manifest.d44e10ac7885905b1ec84054c2b23531.js": "/my-terminal/precache-manifest.d44e10ac7885905b1ec84054c2b23531.js",
+    "service-worker.js": "/my-terminal/service-worker.js",
+    "static/css/2.fcf077d2.chunk.css.map": "/my-terminal/static/css/2.fcf077d2.chunk.css.map",
+    "static/css/main.147c4ed4.chunk.css.map": "/my-terminal/static/css/main.147c4ed4.chunk.css.map",
+    "static/js/2.c12f3ccd.chunk.js.LICENSE.txt": "/my-terminal/static/js/2.c12f3ccd.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/my-terminal/static/media/roboto-mono-latin-700italic.b933305e.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.465c6c68.js",
+    "static/css/2.fcf077d2.chunk.css",
+    "static/js/2.c12f3ccd.chunk.js",
+    "static/css/main.147c4ed4.chunk.css",
+    "static/js/main.8a914679.chunk.js"
+  ]
+}
