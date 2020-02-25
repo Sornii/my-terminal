@@ -1,10 +1,11 @@
 import { parseArgs } from '../../shared/args-parser';
 
-const version = '0.0.1';
+const version = '0.4.0';
 
 const help = `
 Usage: help [options]
 
+Options:
 -h, --help          This menu
 -v, --version       Program version
 -n, --name <name>   Person name

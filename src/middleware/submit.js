@@ -1,14 +1,6 @@
-import helloExecutables from '../home/bin/hello';
-import sumExecutables from '../home/bin/sum';
-import helpExecutables from '../home/bin/help';
+import { executables } from '../home';
 import { SUBMIT } from '../constants/action-types';
 import { programNotFound, executeProgram } from '../actions';
-
-const executables = {
-  ...helloExecutables,
-  ...sumExecutables,
-  ...helpExecutables,
-};
 
 export function submitMiddleware({ dispatch, getState }) {
   return function(next) {

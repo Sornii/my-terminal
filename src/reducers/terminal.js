@@ -17,7 +17,7 @@ import { addAt, removeAt, removeOneKeepSigned } from '../utils';
 const terminal = (
   state = {
     input: 'hello --help',
-    position: 0,
+    position: 12,
     cursor: 'rgba(255, 255, 255, 0.2)',
     submitted: [],
     resurrectPosition: -1,
@@ -71,7 +71,7 @@ const terminal = (
     case MOVE_CURSOR_LEFT: {
       return {
         ...state,
-        position: state.position > 0 ? state.position - 1 : 0,
+        position: removeOneKeepSigned(state.position),
       };
     }
 

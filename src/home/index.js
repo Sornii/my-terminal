@@ -1,14 +1,15 @@
-export const system = {
-  '/': {
-    '/': ['about-me.txt', 'contact.txt', 'links.txt'],
-    '/bin': [
-      'cat.js',
-      'cd.js',
-      'echo.js',
-      'hello.js',
-      'help.js',
-      'ls.js',
-      'sum.js',
-    ],
-  },
+import helloExecutables from '../home/bin/hello';
+import sumExecutables from '../home/bin/sum';
+import helpExecutables from '../home/bin/help';
+import echoExecutables from '../home/bin/echo';
+import fibExecutables from '../home/bin/fib';
+import infoExecutables from '../home/bin/info';
+
+export const executables = {
+  ...helloExecutables,
+  ...sumExecutables,
+  ...helpExecutables,
+  ...echoExecutables,
+  ...fibExecutables,
+  ...infoExecutables,
 };

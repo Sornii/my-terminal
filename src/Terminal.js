@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { connect } from 'react-redux';
 import {
   addCharacter,
@@ -20,7 +20,7 @@ import {
   isArrowDown,
 } from './utils';
 
-const r = 432.08 / 45;
+const characterWidth = 432.08 / 45;
 
 function Cursor({ color, index, shift = 0 }) {
   return (
@@ -28,9 +28,9 @@ function Cursor({ color, index, shift = 0 }) {
       style={{
         backgroundColor: color,
         height: '18px',
-        width: `${r}px`,
-        position: 'absolute',
-        marginLeft: `${r * (index + shift)}px`,
+        width: `${characterWidth}px`,
+        position: 'relative',
+        left: `${characterWidth * (index + shift)}px`,
       }}
     ></div>
   );
@@ -41,9 +41,10 @@ function Input({ text }) {
     <pre
       style={{
         height: '18px',
+        marginLeft: `-${characterWidth}px`,
       }}
     >
-      {text}
+      unknown@internet: {text}
     </pre>
   );
 }
@@ -65,7 +66,7 @@ function KeyboardInput() {
         height: '18px',
       }}
     >
-      <ConnectedCursor />
+      <ConnectedCursor shift={18} />
       <ConnectedInput />
     </div>
   );
@@ -79,7 +80,8 @@ function Output({ texts }) {
   return (
     <div
       style={{
-        flexGrow: 1,
+        flexGrow: 0,
+        flexShrink: 0,
       }}
     >
       {texts.map((text, index) => (
@@ -104,6 +106,8 @@ function Terminal({
   resurrectLastCommandBackwards,
   resurrectLastCommandForward,
 }) {
+  const endRef = useRef(null);
+
   if (blinkableCursor) {
     setInterval(() => {
       toggleCursorColor();
@@ -111,6 +115,7 @@ function Terminal({
   }
 
   document.addEventListener('keydown', function(event, ...rest) {
+    event.preventDefault();
     if (isArrowDown(event)) {
       resurrectLastCommandForward();
     } else if (isArrowUp(event)) {
@@ -121,6 +126,7 @@ function Terminal({
       moveCursorRight();
     } else if (isEnter(event)) {
       submitPrompt();
+      endRef.current.scrollIntoView();
     } else if (isBackspace(event)) {
       deleteCharacter();
     } else if (isValidKey(event)) {
@@ -132,6 +138,7 @@ function Terminal({
     <div className="Terminal">
       <ConnectedOutput />
       <Prompt />
+      <div ref={endRef} />
     </div>
   );
 }

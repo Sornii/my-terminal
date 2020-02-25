@@ -14,8 +14,10 @@ export function parseArgs(args) {
         const currentValue = augmented[lastArg];
         if (Array.isArray(currentValue)) {
           augmented[lastArg] = [...currentValue, currentArg];
-        } else {
+        } else if (!!currentValue) {
           augmented[lastArg] = [currentValue, currentArg];
+        } else {
+          augmented[lastArg] = [currentArg];
         }
       }
     }

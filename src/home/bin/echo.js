@@ -1,4 +1,7 @@
-export function print(printable) {
-  // todo: output do input buffer
-  console.log(printable);
+export function echo(args) {
+  return `${args.join(' ')}`;
 }
+
+export default {
+  echo: echo,
+};

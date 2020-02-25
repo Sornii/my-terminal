@@ -1,12 +1,32 @@
+import { parseArgs } from '../../shared/args-parser';
+
+const version = '0.2.0';
+
+const help = `
+Usage: sum [options] [numbers]
+
+Options:
+-h, --help    This menu
+-v, --version Program version
+
+`;
+
 export function sum(args) {
-  if (!Array.isArray(args) || args.length !== 2) {
-    throw new Error('It needs two arguments');
+  const parsed = parseArgs(args);
+  if (parsed.v || parsed.version) {
+    return version;
   }
-  const [a, b] = args;
-  if (isNaN(a) || isNaN(b)) {
-    throw new Error('It must be numbers');
+  if (parsed.h || parsed.help) {
+    return help;
   }
-  return Number(a) + Number(b);
+
+  if (!Array.isArray(args)) {
+    throw new Error('Unknown error');
+  }
+  if (args.some(isNaN)) {
+    throw new Error('Must be numbers');
+  }
+  return args.reduce((acc, curr) => acc + Number(curr), 0);
 }
 
 export default {

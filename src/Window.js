@@ -18,6 +18,7 @@ const TopBar = styled.div`
   align-items: center;
   padding-left: 2px;
   flex-grow: 0;
+  flex-shrink: 0;
 `;
 
 const Circle = styled.div`
